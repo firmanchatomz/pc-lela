@@ -84,6 +84,7 @@ class UserController extends Controller
 
 	public function detaildiagnosa($id_diagnosa)
 	{
+		$data['cftotal']	= $this->model('diagnosa')->cftotal($id_diagnosa);
 		$data['diagnosa'] = $this->model('diagnosa')->listdiagnosajoinpenyakit($id_diagnosa);
 		$id_kelinci 			= $data['diagnosa']->id_kelinci;
 		$data['kelinci']	= $this->model('kelinci')->listkelinciid($id_kelinci);

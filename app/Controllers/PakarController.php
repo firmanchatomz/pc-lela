@@ -317,6 +317,7 @@ class PakarController extends Controller
 
 	public function detaildiagnosa($id_diagnosa)
 	{
+		$data['cftotal']	= $this->model('diagnosa')->cftotal($id_diagnosa);
 		$data['diagnosa'] = $this->model('diagnosa')->listdiagnosajoinpenyakit($id_diagnosa);
 		$id_kelinci 			= $data['diagnosa']->id_kelinci;
 		$id_user 					= $data['diagnosa']->id_user;
@@ -324,7 +325,6 @@ class PakarController extends Controller
 		$data['hasil']		= $this->model('hasil')->listhasilsetiddiagnosajoingejala($id_diagnosa);
 		$data['obat']			= $this->model('obat')->listobatjoinhasil($id_diagnosa);
 		$data['user']		= $this->model('user')->listuserid($id_user);
-
 		$this->adminpage('user/detaildiagnosa',$data);
 	}
 

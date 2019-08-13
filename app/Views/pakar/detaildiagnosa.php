@@ -58,6 +58,7 @@
 					<td><?= $row->nama_gejala; ?></td>
 					<td><?= filterdouble($no, $data['diagnosa']->posterior); ?></td>
 					<td><?= filterdouble($no, $data['diagnosa']->cftotal); ?></td>
+					<td>ok</td>
 				</tr>
 				<?php $no++ ?>
 			<?php endforeach ?>

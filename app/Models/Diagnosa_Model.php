@@ -87,6 +87,42 @@ class Diagnosa extends ModelClass
 		return $this->_db->fetchjoin(null, 'id');
 	}
 
+	public function cftotal($id_diagnosa)
+	{
+		$this->_db->table('diagnosa','penyakit');
+		$this->_db->where("id_diagnosa='$id_diagnosa'");
+		$data = $this->_db->fetchjoin(null, 'id');
+		if ($data) {
+			// ambil nilai kepastian
+			$this->_db->table('detail_diagnosa');
+			$this->_db->where("id_diagnosa='$id_diagnosa'");
+			$dd = $this->_db->fetch();
+
+			$id_penyakit = $data->id_penyakit;
+			$total_kepercayaan 	= 0;
+			$total_cf 					= 0;
+			foreach ($dd as $row){
+				$total_kepercayaan = $total_kepercayaan + $row['nilai_kepercayaan'];
+				$id_gejala 	= $row['id_gejala'];
+				// nilai cf
+				// cf sementara
+				$this->_db->table('pengetahuan');
+				$this->_db->where("id_gejala='$id_gejala' AND id_penyakit='$id_penyakit'");
+				$dcf 	= $this->_db->fetch('id');
+				if ($dcf) {
+					$nilaicf[]	= $dcf->nilai_cf*$total_kepercayaan;
+				}
+			}
+
+			$cfgabungan = self::rumuscfgabungan($nilaicf);
+			echo $cfgabungan;
+			die();
+			return $cfgabungan * 100;
+		} else {
+			return NULL;
+		}
+	}
+
 	public function listdiagnosa($value='')
 	{
 		$this->_db->table('diagnosa');
@@ -101,6 +137,7 @@ class Diagnosa extends ModelClass
 		
 		$id_gejala 			= $_POST['id_gejala'];
 		$status 				= $_POST['status'];
+		$nilai_kepercayaan = $_POST['nilai_kepercayaan'];
 
 		// action pertanyaan selanjutnya
 		$diagnosa 			= pertanyaandiagnosa($_SESSION['id_last'], $id_gejala, $status);
@@ -108,6 +145,8 @@ class Diagnosa extends ModelClass
 			// simpan ke diagnosa
 			$d['id_diagnosa']		= $id_diagnosa;
 			$d['id_gejala']			= $id_gejala;
+			$d['nilai_kepercayaan']	= $nilai_kepercayaan;
+
 			$this->_db->table('detail_diagnosa');
 			$this->_db->insert($d);
 			$_SESSION['id_last'] = $id_gejala;
@@ -121,6 +160,8 @@ class Diagnosa extends ModelClass
 		$this->_db->table('diagnosa','user');
 		$this->_db->where("id_user='$id_user'");
 		$data = $this->_db->fetchjoin();
+		if ($data) {
+			# code...
 		foreach ($data as $row) {
 			$id_kelinci 	= $row['id_kelinci'];
 			$this->_db->table('kelinci');
@@ -133,6 +174,22 @@ class Diagnosa extends ModelClass
 			$d = null;
 		}
 		return $result;
+		} else {
+			return NULL;
+		}
+	}
+
+	public function rumuscfgabungan($cf)
+	{		
+		$cfgabungan 	= $cf[0];
+		for ($i=0; $i < count($cf)-1; $i++) {
+			$cf2 				= $i+1; 
+			$cfgabungan = ($cf[$cf2]*(1-$cf[$i]));
+			$result[] 	= $cfgabungan; 
+		}
+		$cfgabungan 	= array_sum($result);
+		$cfgabungan 	= round($cfgabungan,1);
+		return $cfgabungan;
 	}
 
 	public function hapusdiagnosaid($id_diagnosa)

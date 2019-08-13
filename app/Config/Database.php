@@ -14,4 +14,4 @@ define('DB_SERV', 'mysql' );
 define('DB_HOST', 'localhost' );
 define('DB_USER', 'root' );
 define('DB_PASS', '' );
-define('DB_NAME', 'db_spakar' );
+define('DB_NAME', 'pc_spakar' );
