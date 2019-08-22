@@ -99,10 +99,10 @@ class Diagnosa extends ModelClass
 			$dd = $this->_db->fetch();
 
 			$id_penyakit = $data->id_penyakit;
-			$total_kepercayaan 	= 0;
 			$total_cf 					= 0;
 			foreach ($dd as $row){
-				$total_kepercayaan = $total_kepercayaan + $row['nilai_kepercayaan'];
+				$nilaicftotal = null;
+				$nilai_kepercayaan = $row['nilai_kepercayaan'];
 				$id_gejala 	= $row['id_gejala'];
 				// nilai cf
 				// cf sementara
@@ -110,13 +110,13 @@ class Diagnosa extends ModelClass
 				$this->_db->where("id_gejala='$id_gejala' AND id_penyakit='$id_penyakit'");
 				$dcf 	= $this->_db->fetch('id');
 				if ($dcf) {
-					$nilaicf[]	= $dcf->nilai_cf*$total_kepercayaan;
+					$nilai_df	= $dcf->nilai_cf;
+					$nilaicftotal = $nilai_kepercayaan*$nilai_df;
 				}
+				$rnilaicftotal[] = $nilaicftotal;  
 			}
 
-			$cfgabungan = self::rumuscfgabungan($nilaicf);
-			echo $cfgabungan;
-			die();
+			$cfgabungan = self::rumuscfgabungan($rnilaicftotal);
 			return $cfgabungan * 100;
 		} else {
 			return NULL;
@@ -134,23 +134,25 @@ class Diagnosa extends ModelClass
 		if (!isset($_SESSION['id_last'])) {
 			$_SESSION['id_last'] = 0;
 		}
-		
+
 		$id_gejala 			= $_POST['id_gejala'];
 		$status 				= $_POST['status'];
 		$nilai_kepercayaan = $_POST['nilai_kepercayaan'];
-
 		// action pertanyaan selanjutnya
 		$diagnosa 			= pertanyaandiagnosa($_SESSION['id_last'], $id_gejala, $status);
-		if (is_integer($diagnosa) || $diagnosa == 'break') {
-			// simpan ke diagnosa
-			$d['id_diagnosa']		= $id_diagnosa;
-			$d['id_gejala']			= $id_gejala;
-			$d['nilai_kepercayaan']	= $nilai_kepercayaan;
+		if ($status == 'ya') {
+			if (is_integer($diagnosa) || $diagnosa == 'break') {
+				// simpan ke diagnosa
+				$d['id_diagnosa']		= $id_diagnosa;
+				$d['id_gejala']			= $id_gejala;
+				$d['nilai_kepercayaan']	= $nilai_kepercayaan;
 
-			$this->_db->table('detail_diagnosa');
-			$this->_db->insert($d);
-			$_SESSION['id_last'] = $id_gejala;
+				$this->_db->table('detail_diagnosa');
+				$this->_db->insert($d);
+			}
 		}
+		$_SESSION['id_last'] = $id_gejala;
+
 		return $diagnosa;
 	}
 

@@ -9,7 +9,7 @@
 				<form method="post" action="<?= base_url('pakar/prosesdiagnosa/' . $data['id_diagnosa']) ?>">
 					<div class="form-group">
 						<input type="hidden" name="id_gejala" value="<?= $data['gejala']->id_gejala ?>">
-						<input type="radio" name="status" value="ya"> Ya <br>
+						<input type="radio" name="status" value="ya" checked> Ya <br>
 						<input type="radio" name="status" value="tidak" > Tidak
 					</div>
 					<div class="row">

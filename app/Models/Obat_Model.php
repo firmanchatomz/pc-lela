@@ -106,10 +106,14 @@ class Obat extends ModelClass
 						$this->_db->table('pencegahan');
 				$this->_db->where("id_penyakit='$id_penyakit'");
 				$pencegahan = $this->_db->fetch('id');
-				$d['nama_penyakit']		= $penyakit->nama_penyakit;
-				$d['nama_obat']			= $obat->nama_obat;
-				$d['aturan']			= $obat->aturan;
-				$d['pencegahan']		= $pencegahan->nama_pencegahan;
+				$nama_pencegahan = '';
+				if ($pencegahan) {
+					$nama_pencegahan = $pencegahan->nama_pencegahan;
+				}
+					$d['nama_penyakit']		= $penyakit->nama_penyakit;
+					$d['nama_obat']			= $obat->nama_obat;
+					$d['aturan']			= $obat->aturan;
+					$d['pencegahan']		= $nama_pencegahan;
 				return $d;
 			} else {
 				return null;

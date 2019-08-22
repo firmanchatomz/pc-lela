@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Agu 2019 pada 22.53
+-- Waktu pembuatan: 23 Agu 2019 pada 01.01
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 5.6.36
 
@@ -64,16 +64,8 @@ CREATE TABLE `detail_diagnosa` (
 --
 
 INSERT INTO `detail_diagnosa` (`id_detail_diagnosa`, `id_diagnosa`, `id_gejala`, `nilai_kepercayaan`) VALUES
-(1205, 246, 2, 0.2),
-(1206, 246, 5, 0.4),
-(1207, 246, 15, 0.5),
-(1208, 246, 39, 0.7),
-(1209, 247, 2, 0.4),
-(1210, 247, 5, 0.3),
-(1211, 247, 15, 0.7),
-(1212, 247, 14, 0.6),
-(1213, 247, 16, 0.7),
-(1214, 247, 17, 0.7);
+(1226, 253, 2, 0.5),
+(1227, 253, 10, 0.4);
 
 -- --------------------------------------------------------
 
@@ -96,8 +88,7 @@ CREATE TABLE `diagnosa` (
 --
 
 INSERT INTO `diagnosa` (`id_diagnosa`, `id_user`, `id_kelinci`, `tgl_diagnosa`, `id_penyakit`, `posterior`, `cftotal`) VALUES
-(246, 93, 246, '2019-08-13', 4, 0.046, 0.5),
-(247, 1, 247, '2019-08-13', 4, 0.091, 1);
+(253, 1, 253, '2019-08-19', 3, 0.03, 0.3);
 
 -- --------------------------------------------------------
 
@@ -202,15 +193,8 @@ CREATE TABLE `hasil_diagnosa` (
 --
 
 INSERT INTO `hasil_diagnosa` (`id_hasil_diagnosa`, `id_diagnosa`, `id_gejala`, `nilai_kepercayaan`) VALUES
-(834, 246, 2, 0.000000),
-(835, 246, 5, 0.000000),
-(836, 246, 15, 0.000000),
-(837, 247, 2, 0.000000),
-(838, 247, 5, 0.000000),
-(839, 247, 15, 0.000000),
-(840, 247, 16, 0.000000),
-(841, 247, 17, 0.000000),
-(842, 247, 14, 0.000000);
+(850, 253, 2, 0.000000),
+(851, 253, 10, 0.000000);
 
 -- --------------------------------------------------------
 
@@ -248,8 +232,6 @@ INSERT INTO `kelinci` (`id_kelinci`, `id_user`, `id_ras`, `nama_kelinci`, `berat
 (12, 1, 1, 'chubby', 3, 'jantan', 2, 'hitam'),
 (13, 1, 1, 'jaguar', 2, 'jantan', 2, 'hitam'),
 (14, 1, 1, 'ghussion', 3, 'jantan', 3, 'hitam'),
-(15, 2, 1, 'chubie', 1, 'jantan', 1, 'putih'),
-(16, 3, 1, 'phony', 1, 'betina', 1, 'putih'),
 (17, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
 (18, 1, 1, 'poni', 1, 'betina', 1, 'putih'),
 (19, 1, 1, 'phony', 1, 'betina', 1, 'putih'),
@@ -274,36 +256,10 @@ INSERT INTO `kelinci` (`id_kelinci`, `id_user`, `id_ras`, `nama_kelinci`, `berat
 (38, 1, 1, 'poni', 1, 'jantan', 1, 'putih'),
 (39, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
 (40, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
-(41, 4, 1, 'phony', 1, 'betina', 1, 'putih'),
 (42, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
 (43, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
-(44, 5, 1, 'poni', 1, 'betina', 1, 'putih'),
-(45, 6, 1, 'poni', 1, 'jantan', 1, 'putih'),
-(46, 7, 1, 'phony', 1, 'jantan', 1, 'putih'),
-(47, 8, 1, 'poni', 1, 'betina', 1, 'putih'),
-(48, 9, 1, 'poni', 1, 'betina', 1, 'putih'),
-(49, 10, 1, 'phony', 1, 'betina', 1, 'putih'),
-(50, 11, 1, 'poni', 1, 'betina', 1, 'putih'),
-(51, 12, 1, 'poni', 1, 'betina', 1, 'putih'),
-(52, 13, 1, 'poni', 1, 'betina', 1, 'putih'),
-(53, 14, 1, 'phony', 1, 'betina', 1, 'putih'),
-(54, 15, 1, 'JCHJD', 1, 'betina', 1, 'putih'),
-(55, 16, 1, 'poni', 1, 'betina', 1, 'putih'),
-(56, 17, 1, 'phony', 1, 'betina', 1, 'putih'),
-(57, 18, 1, 'poni', 1, 'betina', 1, 'putih'),
-(58, 19, 1, 'FD', 1, 'betina', 1, 'putih'),
-(59, 20, 1, 'SGH', 1, 'betina', 1, 'putih'),
-(60, 21, 1, 'GFFG', 1, 'jantan', 1, 'putih'),
-(61, 22, 1, 'JHJ', 1, 'betina', 1, 'putih'),
-(62, 23, 1, 'poni', 1, 'betina', 1, 'putih'),
-(63, 24, 1, 'phony', 1, 'betina', 1, 'putih'),
-(64, 25, 1, 'gsha', 1, 'jantan', 1, 'putih'),
-(65, 26, 1, 'hgj', 1, 'betina', 1, 'putih'),
-(66, 27, 1, 'ffh', 1, 'betina', 1, 'putih'),
-(67, 28, 1, 'vgj', 1, 'betina', 1, 'putih'),
 (68, 1, 1, 'phony', 1, 'jantan', 1, 'putih'),
 (69, 1, 1, 'poni', 1, 'jantan', 1, 'putih'),
-(70, 29, 1, 'phony', 1, 'betina', 1, 'putih'),
 (71, 1, 1, 'ginson', 1, 'jantan', 1, 'putih'),
 (72, 1, 1, 'cg', 1, 'jantan', 1, 'putih'),
 (73, 1, 1, 'xfdfg', 1, 'jantan', 1, 'putih'),
@@ -339,12 +295,9 @@ INSERT INTO `kelinci` (`id_kelinci`, `id_user`, `id_ras`, `nama_kelinci`, `berat
 (103, 1, 1, 'phony', 1, 'betina', 2, 'putih'),
 (104, 1, 1, 'chubby', 1, 'jantan', 2, 'putih'),
 (105, 1, 1, 'chubbby', 1, 'jantan', 1, 'putih'),
-(106, 30, 1, 'chubby', 1, 'betina', 1, 'putih'),
 (107, 1, 1, 'ss', 1, 'jantan', 1, 'putih'),
 (108, 1, 1, 'gss', 1, 'jantan', 1, 'putih'),
 (109, 1, 1, 'ghgh', 1, 'jantan', 1, 'putih'),
-(110, 31, 1, 'hghh', 1, 'betina', 1, 'putih'),
-(111, 32, 1, 'cghhh', 1, 'betina', 1, 'putih'),
 (112, 1, 1, 'hfbj', 1, 'jantan', 1, 'putih'),
 (113, 1, 1, 'xff', 1, 'jantan', 1, 'putih'),
 (114, 1, 1, 'chubbby', 1, 'jantan', 1, 'putih'),
@@ -358,28 +311,15 @@ INSERT INTO `kelinci` (`id_kelinci`, `id_user`, `id_ras`, `nama_kelinci`, `berat
 (122, 1, 1, 'sjshjw', 1, 'jantan', 1, 'putih'),
 (123, 1, 1, 'dff', 1, 'jantan', 1, 'putih'),
 (124, 1, 1, 'sjshjw', 1, 'jantan', 1, 'putih'),
-(125, 33, 1, 'haaj', 1, 'betina', 1, 'p'),
-(126, 34, 1, 'nxjnsd', 1, '', 1, 'putih'),
-(127, 35, 1, 'tftyu', 1, 'betina', 1, 'putih'),
 (128, 1, 1, 'dde', 1, 'jantan', 1, 'putih'),
-(129, 36, 1, 'sdsds', 1, 'betina', 1, 'putih'),
 (130, 1, 1, 'hshs', 1, 'jantan', 1, 'putih'),
 (131, 1, 1, 'gy', 1, 'jantan', 1, 'putih'),
 (132, 1, 1, 'bsa', 1, 'jantan', 1, 'putih'),
 (133, 1, 1, 'shs', 1, 'jantan', 1, 'putih'),
-(134, 37, 1, 'bss', 1, 'betina', 1, 'putih'),
 (135, 1, 1, 'fygu', 1, 'jantan', 1, 'putih'),
 (136, 1, 1, 'dss', 1, 'jantan', 1, 'putih'),
 (137, 1, 1, 'nbxsaxbs', 1, 'jantan', 1, 'putih'),
-(138, 38, 1, 'sdsd', 1, 'betina', 1, 'putih'),
 (139, 1, 1, 'sdsd', 1, 'jantan', 1, 'ddds'),
-(140, 39, 1, 'sjns', 1, 'betina', 1, 'putih'),
-(141, 40, 1, 'sbxsj', 1, 'betina', 1, 'putih'),
-(142, 41, 1, 'ffd', 1, 'betina', 1, 'putih'),
-(143, 42, 1, 'ffg', 1, 'betina', 1, 'putih'),
-(144, 43, 1, 'cgfh', 1, 'jantan', 1, 'putih'),
-(145, 44, 1, 'bjkx', 1, 'betina', 1, 'putih'),
-(146, 45, 1, 'ghj', 1, 'betina', 1, 'putih'),
 (147, 1, 1, 'ded', 1, 'jantan', 1, 'putih'),
 (148, 1, 1, 'ssdsd', 1, 'jantan', 1, 'putih'),
 (149, 1, 1, 'ssds', 1, 'jantan', 1, 'putih'),
@@ -416,71 +356,24 @@ INSERT INTO `kelinci` (`id_kelinci`, `id_user`, `id_ras`, `nama_kelinci`, `berat
 (180, 1, 1, 'css', 1, 'jantan', 1, 'putih'),
 (181, 1, 1, 'dwdwe', 1, 'jantan', 1, 'putih'),
 (182, 1, 1, 'dsfdht', 1, 'jantan', 1, 'putih'),
-(183, 46, 1, 'xssce', 1, 'betina', 1, 'putih'),
-(184, 47, 1, 'dsdre', 1, 'betina', 1, 'putih'),
-(185, 48, 1, 'sds', 1, 'betina', 1, 'putih'),
-(186, 49, 1, 'zhaasj', 1, 'betina', 1, 'putih'),
-(187, 50, 1, 'hsajask', 1, 'betina', 1, 'putih'),
-(188, 51, 1, 'jxsjsj', 1, 'betina', 1, 'putih'),
-(189, 52, 1, 'xcsccs', 1, 'betina', 1, 'putih'),
-(190, 53, 1, 'hxs', 1, 'betina', 1, 'putih'),
-(191, 54, 1, 'nxsjk', 1, 'betina', 1, 'putih'),
-(192, 55, 1, 'hddhiew', 1, 'jantan', 1, 'putih'),
-(193, 56, 1, 'hssja', 1, 'betina', 1, 'putih'),
-(194, 57, 1, 'jsdks', 1, 'betina', 1, 'putih'),
-(195, 58, 1, 'nbxj', 1, 'jantan', 1, 'putih'),
-(196, 59, 1, 'dbshds', 1, 'betina', 1, 'putih'),
-(197, 60, 1, 'hgwhsqw', 1, 'betina', 1, 'putih'),
-(198, 61, 1, 'bzvxas', 1, 'betina', 1, 'putih'),
-(199, 62, 1, 'bxhs', 1, 'betina', 1, 'putih'),
-(200, 63, 1, 'xbsdj', 1, 'betina', 1, 'putih'),
-(201, 64, 1, 'sxsk', 1, 'betina', 1, 'putih'),
-(202, 65, 1, 'xbsaj', 1, 'betina', 1, 'putih'),
-(203, 66, 1, 'sgsjak', 1, 'betina', 1, 'putih'),
-(204, 67, 1, 'cxg', 1, 'betina', 1, 'putih'),
-(205, 68, 1, 'ssjdh', 1, 'betina', 1, 'putih'),
 (206, 1, 1, 'zgs', 1, 'jantan', 1, 'putih'),
 (207, 1, 2, 'poni', 5, 'jantan', 6, 'putih'),
 (208, 1, 2, 'chubie', 3, 'jantan', 4, 'cokelat'),
 (209, 1, 1, 'r', 5, 'jantan', 4, 'ddds'),
-(210, 69, 1, 'gssgwhw', 1, 'jantan', 1, 'putih'),
-(211, 70, 1, 'ssjkhkd', 1, 'jantan', 1, 'putih'),
-(212, 71, 1, 'bhsaxsa', 1, 'betina', 1, 'putih'),
 (213, 1, 1, 'ashsa', 1, 'jantan', 1, 'putih'),
 (214, 1, 1, 'nsjs', 1, 'jantan', 1, 'putih'),
 (215, 1, 1, 'bhsbhs', 1, 'jantan', 1, 'putih'),
-(216, 72, 1, 'ssahh', 1, 'jantan', 1, 'putih'),
 (217, 1, 1, 'nsbxxsj', 1, 'jantan', 1, 'putih'),
 (218, 1, 1, 'bxhss', 1, 'jantan', 1, 'putih'),
 (219, 1, 1, 'sdsd', 1, 'jantan', 1, 'putih'),
 (220, 1, 1, 'shgxsds', 1, 'jantan', 1, 'putih'),
 (221, 1, 1, 'bsdkee', 1, 'jantan', 1, 'putih'),
-(222, 73, 1, 'hhdhdgshd', 1, 'betina', 1, 'putih'),
-(223, 74, 1, 'hxsdsed', 1, 'betina', 1, 'putih'),
-(224, 75, 1, 'sde', 1, 'betina', 1, 'putih'),
-(225, 76, 1, 'hxshhs', 1, 'betina', 1, 'putih'),
-(226, 77, 1, 'bxsjs', 1, 'jantan', 1, 'putih'),
-(227, 78, 1, 'bxasx', 1, 'betina', 1, 'putih'),
-(228, 79, 1, 'ncjsdjds', 1, 'betina', 1, 'putih'),
-(229, 80, 1, 'jxsjsj', 1, 'betina', 1, 'putih'),
-(230, 81, 1, 'bsajd', 1, 'betina', 1, 'putih'),
-(231, 82, 1, 'nsbsd', 1, 'betina', 1, 'putih'),
-(232, 83, 1, 'bxhsaxas', 1, 'betina', 1, 'putih'),
-(233, 84, 1, 'sbdhsd', 1, 'betina', 1, 'putih'),
-(234, 85, 1, 'njkkk', 1, 'betina', 1, 'putih'),
-(235, 86, 1, 'gwswsw', 1, 'betina', 1, 'putih'),
-(236, 87, 1, 'vgyyy', 1, 'betina', 1, 'putih'),
-(237, 88, 1, 'ggh', 1, 'betina', 1, 'putih'),
-(238, 89, 1, 'gyb', 1, 'betina', 1, 'putih'),
-(239, 90, 1, 'gswsh', 1, 'betina', 1, 'putih'),
-(240, 91, 1, 'xbshxjs', 1, 'betina', 1, 'putih'),
 (241, 1, 1, 'chubbie', 1, 'jantan', 1, 'cokelat'),
-(242, 92, 1, 'chubie', 1, 'betina', 1, 'putih'),
 (243, 1, 1, 'chubbby', 2, 'jantan', 6, 'putih'),
 (244, 1, 1, 'chubbby', 1, 'jantan', 1, 'putih'),
 (245, 1, 1, 'chjh', 1, 'jantan', 1, 'putih'),
-(246, 93, 3, 'chubby', 3, 'jantan', 2, 'putih'),
-(247, 1, 1, 'chubby', 1, 'jantan', 3, 'putih');
+(247, 1, 1, 'chubby', 1, 'jantan', 3, 'putih'),
+(253, 1, 1, 'chubby', 3, 'jantan', 3, 'putih');
 
 -- --------------------------------------------------------
 
@@ -720,99 +613,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_depan`, `nama_belakang`, `jk`, `no_hp`, `email`, `alamat`, `username`, `password`, `poto`) VALUES
-(1, 'lela', 'ria lestari', 'perempuan', '98789788978', 'akun.chatomz@gmail.com', 'jl bandung', 'lela', '$2y$10$2bB9Y9cUbHycT/xJzFvxkuaeh4jYRD/NY43p7v2MrvzJpB.u6Tud2', '_DSC0327.jpg'),
-(2, 'Sasa', 'sisi', 'laki-laki', '089876543212', '', 'sasasa', '', '', ''),
-(3, 'sasa', 'sasi', 'laki-laki', '082345654321', '', 'najzx', '', '', ''),
-(4, 'sasa', 'Sisi', 'laki-laki', '087654321234', '', 'Cisarua', '', '', ''),
-(5, 'sasa', 'Sisi', 'laki-laki', '087654321234', '', 'chj', '', '', ''),
-(6, 'sasa', 'Sisi', 'laki-laki', '087654321234', '', 'chj', '', '', ''),
-(7, 'Sasa', 'sisi', 'laki-laki', '087654321234', '', 'gfh', '', '', ''),
-(8, 'sasa', 'sasi', 'laki-laki', '089876543212', '', 'cghh', '', '', ''),
-(9, 'eer', 'ff', 'laki-laki', '082345654321', '', 'vdrtt', '', '', ''),
-(10, 'siti', 'sssq', 'laki-laki', '089876543212', '', 'hjs', '', '', ''),
-(11, 'seli', 'sela', 'laki-laki', '087654321234', '', 'ghgu', '', '', ''),
-(12, 'Sasa', 'sisi', 'laki-laki', '087654321234', '', 'sasas', '', '', ''),
-(13, 'asa', 'assa', 'laki-laki', '087654321234', '', 'AAXASXA', '', '', ''),
-(14, 'GG', 'CG', 'laki-laki', '087654321234', '', 'CGH', '', '', ''),
-(15, 'HDJD', 'BJDCD', 'laki-laki', '087654321234', '', 'VDSH', '', '', ''),
-(16, 'FTH', 'CG', 'laki-laki', '087654321234', '', 'DFD', '', '', ''),
-(17, 'DDF', 'BB', 'laki-laki', '082345654321', '', 'CXS', '', '', ''),
-(18, 'FFFH', 'CHGH', 'laki-laki', '082345654321', '', 'CGH', '', '', ''),
-(19, 'CGG', 'DF', 'laki-laki', '089876543212', '', 'GY', '', '', ''),
-(20, 'ZG', 'DT', 'laki-laki', '089876543212', '', 'XYJ', '', '', ''),
-(21, 'GV', 'GF', 'laki-laki', '087654321234', '', 'HGHHJ', '', '', ''),
-(22, 'CGF', 'GH', 'laki-laki', '087654321234', '', 'HGHGH', '', '', ''),
-(23, 'nida', 'jhhj', 'laki-laki', '087654321234', '', 'ggxhssk', '', '', ''),
-(24, 'lela', 'ghj', 'laki-laki', '082345671123', '', 'vhghjjjh', '', '', ''),
-(25, 'hsghs', 'xshg', 'laki-laki', '087654321234', '', 'hjwhueu', '', '', ''),
-(26, 'dffy', 'vhgu', 'laki-laki', '087654321234', '', 'fjk', '', '', ''),
-(27, 'fgfh', 'thf', 'laki-laki', '087654321234', '', 'fgf', '', '', ''),
-(28, 'GV', 'cgg', 'laki-laki', '082345654321', '', 'bhbj', '', '', ''),
-(29, 'ghg', 'GF', 'laki-laki', '082345654321', '', 'cgfhg', '', '', ''),
-(30, 'xssx', 'sssq', 'laki-laki', '089876543212', '', 'sss', '', '', ''),
-(31, 'gfh', 'fcg', 'laki-laki', '082345671123', '', 'hvhgh', '', '', ''),
-(32, 'ddtt', 'ghg', 'laki-laki', '087654321234', '', 'bjbjk', '', '', ''),
-(33, 'shxs', 'bxhsx', 'laki-laki', '08211345781', '', 'vsxshhsxbshxs', '', '', ''),
-(34, 'xcsdcds', 'dcdscdcdc', 'laki-laki', '08211345781', '', 'cdc', '', '', ''),
-(35, 'fgfhg', 'xxft', 'laki-laki', '08211345781', '', 'dtyty', '', '', ''),
-(36, 'sdsfds', 'dff', 'laki-laki', '087654321234', '', 'fdff', '', '', ''),
-(37, 'dc', 'dfrf', 'laki-laki', '087654321234', '', 'sxhss', '', '', ''),
-(38, 'sdsfds', 'ssds', 'laki-laki', '087654321234', '', 'sdsa', '', '', ''),
-(39, 'ssdd', 'sds', 'laki-laki', '082345654321', '', 'sdsd', '', '', ''),
-(40, 'bsbxjhsx', 'bxhs', 'laki-laki', '082345654321', '', 'nxjsx', '', '', ''),
-(41, 'dffy', 'ffv', 'laki-laki', '082345654321', '', 'ffrfrrre', '', '', ''),
-(42, 'vhj', 'gtfy', 'laki-laki', '087654321234', '', 'ghj', '', '', ''),
-(43, 'hjj', 'xf', 'laki-laki', '082345654321', '', 'vhhgh', '', '', ''),
-(44, 'hgsxhsj', 'vsxhsaj', 'laki-laki', '082345654321', '', 'ashdgsdd', '', '', ''),
-(45, 'vhgj', 'bjj', 'laki-laki', '082345654321', '', 'bbb', '', '', ''),
-(46, 'dsds', 'sssde', 'laki-laki', '08211345781', '', 'sddwefer', '', '', ''),
-(47, 'sddw', 'dfdfr', 'laki-laki', '08211345781', '', 'dedeer', '', '', ''),
-(48, 'dsdsd', 'vdfd', 'laki-laki', '08211345781', '', 'frgtgr', '', '', ''),
-(49, 'xhasjxa', 'xghasj', 'laki-laki', '08211345781', '', 'bsvshdj', '', '', ''),
-(50, 'shasj', 'bss', 'laki-laki', '082345671123', '', 'bsxsaj', '', '', ''),
-(51, 'snxsjh', 'sshh', 'laki-laki', '082345654321', '', 'nbxjsj', '', '', ''),
-(52, 'scsdc', 'dscsd', 'laki-laki', '087654321234', '', 'dccsd', '', '', ''),
-(53, 'hbxskj', 'bnxvhsh', 'laki-laki', '082345654321', '', 'sxjs', '', '', ''),
-(54, 'sxbs', 'js', 'laki-laki', '087654321234', '', 'jsjxs', '', '', ''),
-(55, 'hgsdu', 'hsgsu', 'laki-laki', '08211345781', '', 'snxsk', '', '', ''),
-(56, 'sxsah', 'bsdjsd', 'laki-laki', '087654321234', '', 'nsjxsk', '', '', ''),
-(57, 'skask', 'sjs', 'laki-laki', '087654321234', '', 'nsbas', '', '', ''),
-(58, 'sbxjs', 'bxjsk', 'laki-laki', '082345671123', '', 'nsxsk', '', '', ''),
-(59, 'xchs', 'cbsdh', 'laki-laki', '087654321234', '', 'sbdshdj', '', '', ''),
-(60, 'hhs', 'dhsgs', 'laki-laki', '082345654321', '', 'cdh', '', '', ''),
-(61, 'sahx', 'bsvhxaj', 'laki-laki', '082123432123', '', 'sxs', '', '', ''),
-(62, 'shasj', 'bshj', 'laki-laki', '082345671123', '', 'xasbjsa', '', '', ''),
-(63, 'nbdcud', 'bdh', 'laki-laki', '087654321234', '', 'jdhedhcei', '', '', ''),
-(64, 'hsxas', 'sxs', 'laki-laki', '087654321234', '', 'sxsxs', '', '', ''),
-(65, 'xsvxhs', 'bsvxhs', 'laki-laki', '082345654321', '', 'sxsa', '', '', ''),
-(66, 'gayys', 'sgsu', 'laki-laki', '082345654321', '', 'sxsss', '', '', ''),
-(67, 'fb', 'fyb', 'laki-laki', '082345654321', '', 'cghn', '', '', ''),
-(68, 'shdsh', 'ssgd', 'laki-laki', '087654321234', '', 'dhgjj', '', '', ''),
-(69, 'bhdhe', 'bdhd', 'laki-laki', '082345671123', '', '', '', '', ''),
-(70, 'bdhdj', 'bdcd', 'laki-laki', '087654321234', '', 'wn whd', '', '', ''),
-(71, 'nbsjsj', 'ddd', 'laki-laki', '082345654321', '', 'awdwwde', '', '', ''),
-(72, 'vdhdh', 'shd', 'laki-laki', '087654321234', '', 'bwsjdwje', '', '', ''),
-(73, 'ssygd', 'vsdgy', 'laki-laki', '087654321234', '', 'bvdshde', '', '', ''),
-(74, 'dfrre', 'rrere', 'laki-laki', '082345654321', '', 'dwdew', '', '', ''),
-(75, 'ssdd', 'sdsd', 'laki-laki', '087654321234', '', 'shsdsdu', '', '', ''),
-(76, 'ssh', 'shs', 'laki-laki', '087654321234', '', 'dsdsf', '', '', ''),
-(77, 'nbssj', 'nbsdjsd', 'laki-laki', '087654321234', '', 'bhsjs', '', '', ''),
-(78, 'hsxbs', 'bsxs', 'laki-laki', '089876543212', '', 'bshxsh', '', '', ''),
-(79, 'sjnsd', 'ssdh', 'laki-laki', '087654321234', '', 'hxsa', '', '', ''),
-(80, 'ssh', 'bxsxs', 'laki-laki', '089876543212', '', 'jznjasxks', '', '', ''),
-(81, 'shdsd', 'hsdhh', 'laki-laki', '089876543212', '', 'sbdde', '', '', ''),
-(82, 'ndd', 'jcjdd', 'laki-laki', '087654321234', '', 'dberref', '', '', ''),
-(83, 'bhs', 'cbdss', 'laki-laki', '087654321234', '', 'dccsdc', '', '', ''),
-(84, 'bshds', 'bvsdh', 'laki-laki', '089876543212', '', 'n ssdjjdde', '', '', ''),
-(85, 'gshh', 'ssgs', 'laki-laki', '089876543212', '', 'bsvdde', '', '', ''),
-(86, 'svhdee', 'vxsgd', 'laki-laki', '089876543212', '', 'bshddesjd', '', '', ''),
-(87, 'ftftf', 'cf', 'laki-laki', '087654321234', '', 'vgyg', '', '', ''),
-(88, 'chgh', 'gg', 'laki-laki', '082345654321', '', 'ccf', '', '', ''),
-(89, 'vcgg', 'hbh', 'laki-laki', '087654321234', '', 'vhhb', '', '', ''),
-(90, 'bsbhsj', 'nxbsxs', 'laki-laki', '089876543212', '', 'snx bs', '', '', ''),
-(91, 'hxhds', 'hbhhsd', 'laki-laki', '087654321234', '', 'xmsxs', '', '', ''),
-(92, 'lela', 'lestari', 'laki-laki', '', '', 'cisarua', '', '', ''),
-(93, 'agung', 'ardiansyah', 'laki-laki', '08767473672', '', 'jl sukarindik', '', '', '');
+(1, 'lela', 'ria lestari', 'perempuan', '98789788978', 'akun.chatomz@gmail.com', 'jl bandung', 'lela', '$2y$10$2bB9Y9cUbHycT/xJzFvxkuaeh4jYRD/NY43p7v2MrvzJpB.u6Tud2', '_DSC0327.jpg');
 
 --
 -- Indexes for dumped tables
@@ -918,13 +719,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `detail_diagnosa`
 --
 ALTER TABLE `detail_diagnosa`
-  MODIFY `id_detail_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1215;
+  MODIFY `id_detail_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1228;
 
 --
 -- AUTO_INCREMENT untuk tabel `diagnosa`
 --
 ALTER TABLE `diagnosa`
-  MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT untuk tabel `gejala`
@@ -936,13 +737,13 @@ ALTER TABLE `gejala`
 -- AUTO_INCREMENT untuk tabel `hasil_diagnosa`
 --
 ALTER TABLE `hasil_diagnosa`
-  MODIFY `id_hasil_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=843;
+  MODIFY `id_hasil_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=852;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelinci`
 --
 ALTER TABLE `kelinci`
-  MODIFY `id_kelinci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id_kelinci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT untuk tabel `obat`
@@ -978,7 +779,7 @@ ALTER TABLE `ras`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

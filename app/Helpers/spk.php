@@ -128,8 +128,9 @@ function pohondiagnosa()
 function pertanyaandiagnosa($id_last, $id, $status)
 {
 	$pertanyaan = pohondiagnosa();
-	$id 				= $id . '-' . $id_last;	
+	$id 				= $id . '-' . $id_last;	// 5-2
 	if (count($pertanyaan[$id]) == 2) {
+		// 10
 		return $pertanyaan[$id][$status];
 	} else {
 		return $pertanyaan[$id]['ya'];
